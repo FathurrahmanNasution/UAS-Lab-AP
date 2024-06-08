@@ -71,6 +71,8 @@ int main() {
 
     vector<Book> borrowed;
 
+    cout << "Selamat datang di program meminjam buku!" << endl;
+
     bool borrowAgain = true;
     while (borrowAgain) {
         displayBukuTersedia(books, size);
@@ -86,11 +88,9 @@ int main() {
         }
     }   
 
-    cout << "Selamat datang di program meminjam buku!" << endl;
-
 // Display borrowed books
     displayPinjamBuku(borrowed);
-    
+
     cout << "\nTerimakasih telah meminjam buku!" << endl;
 
     return 0;
