@@ -28,9 +28,6 @@ void displayPinjamBuku(vector<Book>& borrowed) {
     }
 }
 
- // Display borrowed books
-    displayPinjamBuku(borrowed);
-
 //Function to borrow a book
 void pinjamBuku(Book* books, int size, vector<Book>& borrowed) {
     int choice;
@@ -91,6 +88,9 @@ int main() {
 
     cout << "Selamat datang di program meminjam buku!" << endl;
 
+// Display borrowed books
+    displayPinjamBuku(borrowed);
+    
     cout << "\nTerimakasih telah meminjam buku!" << endl;
 
     return 0;
