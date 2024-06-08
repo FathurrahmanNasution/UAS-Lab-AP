@@ -20,7 +20,7 @@ void displayBukuTersedia(Book* books, int size) {
         cout << i + 1 << ". " << books[i].title << " by " << books[i].author << endl;
     }
 }
-// Function to display borrowed books
+
 void displayPinjamBuku(vector<Book>& borrowed) {
     cout << "\nBuku-buku yang telah anda pinjam:" << endl;
     for (Book& book : borrowed) {
@@ -28,7 +28,7 @@ void displayPinjamBuku(vector<Book>& borrowed) {
     }
 }
 
-//Function to borrow a book
+
 void pinjamBuku(Book* books, int size, vector<Book>& borrowed) {
     int choice;
     cout << "silahkan pilih nomor buku yang anda ingin pinjam: ";
@@ -47,7 +47,7 @@ void pinjamBuku(Book* books, int size, vector<Book>& borrowed) {
     }
 }
 
-// Function to check if a book is already borrowed
+
 bool bukuYangTelahDipinjam(Book& book, vector<Book>& borrowed) {
     for (Book& b : borrowed) {
         if (b.title == book.title) {
@@ -58,7 +58,7 @@ bool bukuYangTelahDipinjam(Book& book, vector<Book>& borrowed) {
 }
 
 int main() {
-    // Array of available books
+
     Book books[] = {
         {"The Great Gatsby", "F. Scott Fitzgerald"},
         {"To Kill a Mockingbird", "Harper Lee"},
@@ -70,6 +70,8 @@ int main() {
     int size = sizeof(books) / sizeof(books[0]);
 
     vector<Book> borrowed;
+
+    cout << "Selamat datang di program meminjam buku!" << endl;
 
     bool borrowAgain = true;
     while (borrowAgain) {
@@ -86,11 +88,8 @@ int main() {
         }
     }   
 
-    cout << "Selamat datang di program meminjam buku!" << endl;
-
-// Display borrowed books
     displayPinjamBuku(borrowed);
-    
+
     cout << "\nTerimakasih telah meminjam buku!" << endl;
 
     return 0;
