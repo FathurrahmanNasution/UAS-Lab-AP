@@ -20,6 +20,16 @@ void displayBukuTersedia(Book* books, int size) {
         cout << i + 1 << ". " << books[i].title << " by " << books[i].author << endl;
     }
 }
+// Function to display borrowed books
+void displayPinjamBuku(vector<Book>& borrowed) {
+    cout << "\nBuku-buku yang telah anda pinjam:" << endl;
+    for (Book& book : borrowed) {
+        cout << "- " << book.title << " oleh " << book.author << endl;
+    }
+}
+
+ // Display borrowed books
+    displayPinjamBuku(borrowed);
 
 int main() {
     // Array of available books
