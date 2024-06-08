@@ -21,6 +21,35 @@ void displayBukuTersedia(Book* books, int size) {
     }
 }
 
+//Function to borrow a book
+void pinjamBuku(Book* books, int size, vector<Book>& borrowed) {
+    int choice;
+    cout << "silahkan pilih nomor buku yang anda ingin pinjam: ";
+    cin >> choice;
+
+    // Check if the book is already borrowed
+    if (choice >= 1 && choice <= size && !bukuYangTelahDipinjam(books[choice - 1], borrowed)) {
+        borrowed.push_back(books[choice - 1]);
+        cout << "Anda telah meminjam \"" << books[choice - 1].title << "\" oleh " << books[choice - 1].author << "." << endl;
+    } else {
+        if (bukuYangTelahDipinjam(books[choice - 1], borrowed)) {
+            cout << "Error: Buku ini telah dipinjam. Silahkan pilih buku lain." << endl;
+        } else {
+            cout << "Invalid. Silahkan coba ulang." << endl;
+        }
+    }
+}
+
+// Function to check if a book is already borrowed
+bool bukuYangTelahDipinjam(Book& book, vector<Book>& borrowed) {
+    for (Book& b : borrowed) {
+        if (b.title == book.title) {
+            return true;
+        }
+    }
+    return false;
+}
+
 int main() {
     // Array of available books
     Book books[] = {
@@ -38,6 +67,8 @@ int main() {
     bool borrowAgain = true;
     while (borrowAgain) {
         displayBukuTersedia(books, size);
+
+        pinjamBuku(books, size, borrowed);
 
     char decision;
         cout << "Apakah anda ingin meminjam buku lagi? (y/n) ";
