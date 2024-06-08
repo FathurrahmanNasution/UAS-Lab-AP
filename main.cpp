@@ -88,6 +88,9 @@ int main() {
         }
     }   
 
+    cout << "Selamat datang di program meminjam buku!" << endl;
+
+// Display borrowed books
     displayPinjamBuku(borrowed);
 
     cout << "\nTerimakasih telah meminjam buku!" << endl;
