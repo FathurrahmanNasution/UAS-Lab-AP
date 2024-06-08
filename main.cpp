@@ -34,7 +34,6 @@ void pinjamBuku(Book* books, int size, vector<Book>& borrowed) {
     cout << "silahkan pilih nomor buku yang anda ingin pinjam: ";
     cin >> choice;
 
-    // Check if the book is already borrowed
     if (choice >= 1 && choice <= size && !bukuYangTelahDipinjam(books[choice - 1], borrowed)) {
         borrowed.push_back(books[choice - 1]);
         cout << "Anda telah meminjam \"" << books[choice - 1].title << "\" oleh " << books[choice - 1].author << "." << endl;
@@ -88,9 +87,6 @@ int main() {
         }
     }   
 
-    cout << "Selamat datang di program meminjam buku!" << endl;
-
-// Display borrowed books
     displayPinjamBuku(borrowed);
 
     cout << "\nTerimakasih telah meminjam buku!" << endl;
